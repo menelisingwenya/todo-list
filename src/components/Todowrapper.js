@@ -46,8 +46,7 @@ const Todowrapper = () => {
             task.id === id && task.timerRunning === true
               ? { ...task, timerSeconds: task.timerSeconds + 1 }
               : task
-          )
-        );
+          ));
       }, 1000);
       intervalsRef.current.set(id, intervalId);
 
@@ -99,7 +98,7 @@ const Todowrapper = () => {
 
   React.useEffect(() => {
     return () => {
-      for (const [_, intervalId] of intervalsRef.current.entries()) {
+      for (const [intervalId] of intervalsRef.current.entries()) {
         clearInterval(intervalId);
       }
       intervalsRef.current.clear();
