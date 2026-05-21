@@ -96,14 +96,7 @@ const Todowrapper = () => {
     setTasks(prev => [newTask, ...prev]);
   };
 
-  React.useEffect(() => {
-    return () => {
-      for (const [intervalId] of intervalsRef.current.entries()) {
-        clearInterval(intervalId);
-      }
-      intervalsRef.current.clear();
-    };
-  }, []);
+ 
 
   const taskElements = tasks.map(task =>
     React.createElement(Todo, {
